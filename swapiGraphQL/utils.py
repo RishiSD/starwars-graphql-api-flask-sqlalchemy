@@ -48,7 +48,7 @@ def fetch_swapi_data():
                                     inplace=True):
             matchObj = re.match(f'(.*)"url"(.*)', line, re.M)
             if matchObj:
-                line = matchObj.group(1) + '"id"' \
+                line = matchObj.group(1) + '"url_id"' \
                     + matchObj.group(2) + '\n'
             sys.stdout.write(line)
 
@@ -78,10 +78,10 @@ def set_rel_swapi_data():
             for rec in data:
                 if 'films' in rec:
                     parent = eval(f'db_session.query({resource_map[resource]})\
-                                  .filter_by(id={rec["id"]}).first()')
+                                  .filter_by(url_id={rec["url_id"]}).first()')
                     for film_id in rec['films']:
                         child = db_session.query(ModelFilm)\
-                                          .filter_by(id=film_id).first()
+                                          .filter_by(url_id=film_id).first()
                         parent.film_list.append(child)
             db_session.commit()
 
@@ -98,10 +98,10 @@ def set_rel_swapi_data():
             for rec in data:
                 if field in rec:
                     parent = eval(f'db_session.query({resource_map[resource]})\
-                                  .filter_by(id={rec["id"]}).first()')
+                                  .filter_by(url_id={rec["url_id"]}).first()')
                     for people_id in rec[field]:
                         child = db_session.query(ModelPeople)\
-                                          .filter_by(id=people_id).first()
+                                          .filter_by(url_id=people_id).first()
                         if field == 'people':
                             parent.people_list.append(child)
                         else:

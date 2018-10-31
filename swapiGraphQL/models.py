@@ -6,50 +6,50 @@ from swapiGraphQL.database import Base
 
 character_map = Table('character_map',
     Base.metadata,
-    Column('film_id', Integer, ForeignKey('film.id')),
-    Column('people_id', Integer, ForeignKey('people.id'))
+    Column('film_id', Integer, ForeignKey('film.url_id')),
+    Column('people_id', Integer, ForeignKey('people.url_id'))
 )
 
 planet_map = Table('planet_map',
     Base.metadata,
-    Column('film_id', Integer, ForeignKey('film.id')),
-    Column('planet_id', Integer, ForeignKey('planet.id'))
+    Column('film_id', Integer, ForeignKey('film.url_id')),
+    Column('planet_id', Integer, ForeignKey('planet.url_id'))
 )
 
 vehicle_map = Table('vehicle_map',
     Base.metadata,
-    Column('film_id', Integer, ForeignKey('film.id')),
-    Column('vehicle_id', Integer, ForeignKey('vehicle.id'))
+    Column('film_id', Integer, ForeignKey('film.url_id')),
+    Column('vehicle_id', Integer, ForeignKey('vehicle.url_id'))
 )
 
 starship_map = Table('starship_map',
     Base.metadata,
-    Column('film_id', Integer, ForeignKey('film.id')),
-    Column('starship_id', Integer, ForeignKey('starship.id'))
+    Column('film_id', Integer, ForeignKey('film.url_id')),
+    Column('starship_id', Integer, ForeignKey('starship.url_id'))
 )
 
 species_map = Table('species_map',
     Base.metadata,
-    Column('film_id', Integer, ForeignKey('film.id')),
-    Column('species_id', Integer, ForeignKey('species.id'))
+    Column('film_id', Integer, ForeignKey('film.url_id')),
+    Column('species_id', Integer, ForeignKey('species.url_id'))
 )
 
 peep_species_map = Table('peep_species_map',
     Base.metadata,
-    Column('people_id', Integer, ForeignKey('people.id')),
-    Column('species_id', Integer, ForeignKey('species.id'))
+    Column('people_id', Integer, ForeignKey('people.url_id')),
+    Column('species_id', Integer, ForeignKey('species.url_id'))
 )
 
 peep_vehicle_map = Table('peep_vehicle_map',
     Base.metadata,
-    Column('people_id', Integer, ForeignKey('people.id')),
-    Column('vehicle_id', Integer, ForeignKey('vehicle.id'))
+    Column('people_id', Integer, ForeignKey('people.url_id')),
+    Column('vehicle_id', Integer, ForeignKey('vehicle.url_id'))
 )
 
 peep_starship_map = Table('peep_starship_map',
     Base.metadata,
-    Column('people_id', Integer, ForeignKey('people.id')),
-    Column('starship_id', Integer, ForeignKey('starship.id'))
+    Column('people_id', Integer, ForeignKey('people.url_id')),
+    Column('starship_id', Integer, ForeignKey('starship.url_id'))
 )
 
 
@@ -59,7 +59,7 @@ class ModelFilm(Base):
     __tablename__ = 'film'
 
     film_id = Column('film_id', Integer, primary_key=True)
-    id = Column('id', Integer)
+    url_id = Column('url_id', Integer)
     title = Column('title', String)
     episode_id = Column('episode_id', Integer)
     opening_crawl = Column('opening_crawl', String)
@@ -87,7 +87,7 @@ class ModelPeople(Base):
     __tablename__ = 'people'
 
     people_id = Column('people_id', Integer, primary_key=True)
-    id = Column('id', Integer)
+    url_id = Column('url_id', Integer)
     name = Column('name', String)
     height = Column('height', String)
     mass = Column('mass', String)
@@ -96,7 +96,7 @@ class ModelPeople(Base):
     eye_color = Column('eye_color', String)
     birth_year = Column('birth_year', String)
     gender = Column('gender', String)
-    homeworld = Column('homeworld', Integer, ForeignKey('planet.id'))
+    homeworld = Column('homeworld', Integer, ForeignKey('planet.url_id'))
     created = Column('created', String)
     edited = Column('edited', String)
 
@@ -114,7 +114,7 @@ class ModelSpecies(Base):
     __tablename__ = 'species'
 
     species_id = Column('species_id', Integer, primary_key=True)
-    id = Column('id', Integer)
+    url_id = Column('url_id', Integer)
     name = Column('name', String)
     classification = Column('classification', String)
     designation = Column('designation', String)
@@ -123,7 +123,7 @@ class ModelSpecies(Base):
     hair_colors = Column('hair_colors', String)
     eye_colors = Column('eye_colors', String)
     average_lifespan = Column('average_lifespan', String)
-    homeworld = Column('homeworld', Integer, ForeignKey('planet.id'))
+    homeworld = Column('homeworld', Integer, ForeignKey('planet.url_id'))
     language = Column('language', String)
     created = Column('created', String)
     edited = Column('edited', String)
@@ -135,7 +135,7 @@ class ModelPlanet(Base):
     __tablename__ = 'planet'
 
     planet_id = Column('planet_id', Integer, primary_key=True)
-    id = Column('id', Integer)
+    url_id = Column('url_id', Integer)
     name = Column('name', String)
     rotation_period = Column('rotation_period', String)
     orbital_period = Column('orbital_period', String)
@@ -175,7 +175,7 @@ class ModelVehicle(ModelTransport, Base):
     __tablename__ = 'vehicle'
 
     vehicle_id = Column('vehicle_id', Integer, primary_key=True)
-    id = Column('id', Integer)
+    url_id = Column('url_id', Integer)
     vehicle_class = Column('vehicle_class', String)
 
 
@@ -185,7 +185,7 @@ class ModelStarship(ModelTransport, Base):
     __tablename__ = 'starship'
 
     starship_id = Column('starship_id', Integer, primary_key=True)
-    id = Column('id', Integer)
+    url_id = Column('url_id', Integer)
     hyperdrive_rating = Column('hyperdrive_rating', String)
     mglt = Column('mglt', String)
     starship_class = Column('starship_class', String)
