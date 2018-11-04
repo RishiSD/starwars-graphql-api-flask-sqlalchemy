@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SWAPI GraphQL : A Star Wars GraphQL API</title>
+
+  <meta property="og:title" content="StarWarsIntro.css : The Star Wars Intro Crawl in Pure CSS" />
+  <meta property="og:description" content="Make great intros to awesome Star Wars tools online. Use StarWarsIntro.css to create The Star Wars Intro Crawl effect." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://polarnotion.github.io/starwarsintro/" />
+  <meta property="og:image" content="http://polarnotion.github.io/starwarsintro/star-wars-intro-crawl-image.jpg" />
+
+  <link rel="shortcut icon" type="image/png" href="{{ url_for( 'static', filename='favicon.png') }}"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="{{ url_for( 'static', filename='starwarsintro.css') }}">
+
+  <style type="text/css">
+    body, h1, h2, h3, h4, h5, h6, p, a, td, li, .btn {
+      font-family: 'Lato', Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .pad {
+      padding: 60px 10px; 
+    }
+    .container {
+      max-width: 900px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 45px;
+      line-height: 55px;
+    }
+    h2 {
+      font-size: 35px;
+      line-height: 45px;
+      margin-top: 60px;
+    }
+    footer {
+      background-color: #111;
+      padding: 40px 20px;
+      color: white;
+    }
+    footer a {
+      color: white;
+    }
+    footer a:hover,
+    footer a:active,
+    footer a:focus {
+      color: white;
+      text-decoration: none;
+      opacity: .7;
+    }
+    .btn-white-outline {
+      background-color: transparent;
+      border-color: white;
+      border-width: 2px;
+      color: white;
+    }
+
+    .btn.btn-white-outline:hover,
+    .btn.btn-white-outline:active,
+    .btn.btn-white-outline:focus {
+      background-color: white;
+      border-color: white;
+      color: #FF5E52;
+      box-shadow: none;
+    }
+
+    .btn-primary-outline {
+      background-color: transparent;
+      border-color: #FF5E52;
+      border-width: 2px;
+      color: #FF5E52;
+    }
+    .container-md {
+      max-width: 500px;
+    }
+    .download-wrapper {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      z-index: 999999999;
+    }
+    .btn-outline {
+      border: 2px solid #EBD71C;
+      color: #EBD71C;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+    }
+    .btn-outline:hover,
+    .btn-outline:active,
+    .btn-outline:focus {
+      background-color: #EBD71C;
+      color: black;
+    }
+  </style>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33343564-13', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</head>
+<body>
+  <!-- <div class="download-wrapper">
+    <a href="starwarsintro.css.zip" class="btn btn-outline">Download CSS</a>
+  </div> -->
+  <div class="star-wars-intro">
+
+    <!-- Blue Intro Text -->
+    <p class="intro-text">
+      A few days ago, during...
+    </p>
+
+    <!-- Logo Image or Text goes in here -->
+    <h2 class="main-logo">
+      <img src="{{ url_for( 'static', filename='sw.png') }}">
+      <img src="{{ url_for( 'static', filename='gql.png') }}">
+    </h2>
+
+    <!-- All Scrolling Content Goes in here -->
+    <div class="main-content">
+
+      <div class="title-content">
+        <p class="content-header">SWAPI GraphQL<br>A New GraphQL API</p>
+
+        <br>
+
+        <p class="content-body">
+          After years of working with REST API's as a software engineer, writing and accessing multiple endpoints for each resource, tackling the problems of underfetching and overfetching, the API Jedi's
+          have found us a new hope, a tool from the API toolbox, GraphQL - An API specification providing declarative data fetching via schema definitions for elegant data retrieval and providing better backend stability embracing modern trends. Checkout SWAPI GraphQL build for fetching Star Wars movie data using GraphQL.
+        </p>
+        <br>
+
+        <!-- button or link or whatever -->
+        <a href="#welcome" class="space-button">Go</a>
+        <br>
+          
+      </div>
+    </div>
+  </div>
+
+  <section id="welcome">
+    <div class="container">
+      <div class="pad">
+        <h1 class="text-center">SWAPI GraphQL</h1>
+        <p class="text-center lead">A Star Wars GraphQL API</p>
+
+        <h2 id="examples">What is this?</h2>
+        <p class="lead">A GraphQL implementation of the <i><a href="https://swapi.co/">SWAPI</a> - A Star Wars REST API. This project is inspired from SWAPI and uses the data generously provided by it. This API is built using Python, Flask, Graphene, Relay and SQLAlchemy.</i></p>
+        <p class="lead">All the Star Wars data you've ever wanted:<br> Planets, Spaceships, Vehicles, People, Films and Species.</p>
+        <p class="lead">You can find the documentation for the API on the <a href="#doc">here</a>.<br>Access GitHub repository for swapiGraphQL <a href="https://github.com/RishiSD/starwars-graphql-api-flask-sqlalchemy">here</a>.</p>
+        <p class="lead">Let's dive into the SWAPI GraphQL hyperspace !!!</p>
+
+        <p class="text-center">
+          <a href="{{ url_for( 'graphql' ) }}" class="btn btn-outline">SWAPI GraphQL</a>
+        </p>
+        <br>  
+        <div class="text-center">
+          <img src="https://memegenerator.net/img/instances/66122646/with-you-young-programmer-may-the-force-be.jpg" alt="May the Force be with you" width="500" height="300">
+        </div>
+        <div id="doc">
+        <h2 id="examples">Documentation</h2>
+        <h3 id="examples">Resources</h3>
+        <h4 id="examples">People</h4>
+        <p>A People resource is an individual person or character within the Star Wars universe.</p>
+        <p><strong>Attributes:</strong></p>
+        <ul>
+        <li><code>name</code> <em>string</em>
+        -- The name of this person.</li>
+        <li><code>birthYear</code> <em>string</em>
+        -- The birth year of the person, using the in-universe standard of <strong>BBY</strong> or <strong>ABY</strong> - Before the Battle of Yavin or After the Battle of Yavin. The Battle of Yavin is a battle that occurs at the end of Star Wars episode IV: A New Hope.</li>
+        <li><code>eyeColor</code> <em>string</em>
+        -- The eye color of this person. Will be "unknown" if not known or "n/a" if the person does not have an eye.</li>
+        <li><code>gender</code> <em>string</em>
+        -- The gender of this person. Either "Male", "Female" or "unknown", "n/a" if the person does not have a gender.</li>
+        <li><code>hairColor</code> <em>string</em>
+        -- The hair color of this person. Will be "unknown" if not known or "n/a" if the person does not have hair.</li>
+        <li><code>height</code> <em>string</em>
+        -- The height of the person in centimeters.</li>
+        <li><code>mass</code> <em>string</em>
+        -- The mass of the person in kilograms.</li>
+        <li><code>skinColor</code> <em>string</em>
+        -- The skin color of this person.</li>
+        <li><code>homeworld</code> <em>string</em>
+        -- The URL of a planet resource, a planet that this person was born on or inhabits.</li>
+        <li><code>filmList</code> <em>list</em>
+        -- A list of film resource URLs that this person has been in.</li>
+        <li><code>speciesList</code> <em>list</em>
+        -- A list of species resource URLs that this person belongs to.</li>
+        <li><code>starshipList</code> <em>list</em>
+        -- A list of starship resource URLs that this person has piloted.</li>
+        <li><code>vehicleList</code> <em>list</em>
+        -- A list of vehicle resource URLs that this person has piloted.</li>
+        <li><code>urlId</code> <em>integer</em>
+        -- Unique ID for the resource.</li>
+        <li><code>created</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was created.</li>
+        <li><code>edited</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was edited.</li>
+        </ul>        
+        <p><strong>Queries:</strong></p>  
+        <ul>
+        <li><code>people(urlId: Integer)</code> <em>PeopleObject</em>
+        -- Get a specific People resource.</li>
+        <li><code>peopleName(name: String)</code> <em>[PeopleObject]</em>
+        -- Get a list of People resource with name like input argument <i>name</i>.</li>
+        <li><code>allPeople</code> <em>[PeopleObject]</em>
+        -- Get a list of all People resources.</li>
+        </ul>  
+        <h4 id="examples">Film</h4>
+        <p>A Film resource is a single film.</p>
+        <p><strong>Attributes:</strong></p>
+        <ul>
+        <li><code>title</code> <em>string</em>
+        -- The title of this film</li>
+        <li><code>episodeId</code> <em>integer</em>
+        -- The episode number of this film.</li>
+        <li><code>openingCrawl</code> <em>string</em>
+        -- The opening paragraphs at the beginning of this film.</li>
+        <li><code>director</code> <em>string</em>
+        -- The name of the director of this film.</li>
+        <li><code>producer</code> <em>string</em>
+        -- The name(s) of the producer(s) of this film. Comma separated.</li>
+        <li><code>releaseDate</code> <em>date</em>
+        -- The ISO 8601 date format of film release at original creator country.</li>
+        <li><code>speciesList</code> <em>list</em>
+        -- A list of species resource URLs that are in this film.</li>
+        <li><code>starshipList</code> <em>list</em>
+        -- A list of starship resource URLs that are in this film.</li>
+        <li><code>vehicleList</code> <em>list</em>
+        -- A list of vehicle resource URLs that are in this film.</li>
+        <li><code>characterList</code> <em>list</em>
+        -- A list of people resource URLs that are in this film.</li>
+        <li><code>planetList</code> <em>list</em>
+        -- A list of planet resource URLs that are in this film.</li>
+        <li><code>urlId</code> <em>integer</em>
+        -- Unique ID for the resource.</li>
+        <li><code>created</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was created.</li>
+        <li><code>edited</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was edited.</li>
+        </ul>
+        <p><strong>Queries:</strong></p>  
+        <ul>
+        <li><code>film(urlId: Integer)</code> <em>FilmObject</em>
+        -- Get a specific Film resource.</li>
+        <li><code>filmTitle(title: String)</code> <em>[FilmObject]</em>
+        -- Get a list of Film resource with title like input argument <i>title</i>.</li>
+        <li><code>allFilms</code> <em>[FilmObject]</em>
+        -- Get a list of all Film resources.</li>
+        </ul> 
+        <h4 id="examples">Starship</h4>
+        <p>A Starship resource is a single transport craft that has hyperdrive capability.</p>
+        <p><strong>Attributes:</strong></p>
+        <ul>
+        <li><code>name</code> <em>string</em>
+        -- The name of this starship. The common name, such as "Death Star".</li>
+        <li><code>model</code> <em>string</em>
+        -- The model or official name of this starship. Such as "T-65 X-wing" or "DS-1 Orbital Battle Station".</li>
+        <li><code>starshipClass</code> <em>string</em>
+        -- The class of this starship, such as "Starfighter" or "Deep Space Mobile Battlestation"</li>
+        <li><code>manufacturer</code> <em>string</em>
+        -- The manufacturer of this starship. Comma separated if more than one.</li>
+        <li><code>costInCredits</code> <em>string</em>
+        -- The cost of this starship new, in galactic credits.</li>
+        <li><code>length</code> <em>string</em>
+        -- The length of this starship in meters.</li>
+        <li><code>crew</code> <em>string</em>
+        -- The number of personnel needed to run or pilot this starship.</li>
+        <li><code>passengers</code> <em>string</em>
+        -- The number of non-essential people this starship can transport.</li>
+        <li><code>maxAtmospheringSpeed</code> <em>string</em>
+        -- The maximum speed of this starship in the atmosphere. "N/A" if this starship is incapable of atmospheric flight.</li>
+        <li><code>hyperdriveRating</code> <em>string</em>
+        -- The class of this starships hyperdrive.</li>
+        <li><code>MGLT</code> <em>string</em>
+        -- The Maximum number of Megalights this starship can travel in a standard hour. A "Megalight" is a standard unit of distance and has never been defined before within the Star Wars universe. This figure is only really useful for measuring the difference in speed of starships. We can assume it is similar to AU, the distance between our Sun (Sol) and Earth.</li>
+        <li><code>cargoCapacity</code> <em>string</em>
+        -- The maximum number of kilograms that this starship can transport.</li>
+        <li><code>consumables</code> <em>string</em>
+        -- The maximum length of time that this starship can provide consumables for its entire crew without having to resupply.</li>
+        <li><code>filmList</code> <em>list</em>
+        -- A list of Film URL Resources that this starship has appeared in.</li>
+        <li><code>pilotList</code> <em>list</em>
+        -- A list of People URL Resources that this starship has been piloted by.</li>
+        <li><code>url</code> <em>string</em>
+        -- Unique ID for the resource.</li>
+        <li><code>created</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was created.</li>
+        <li><code>edited</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was edited.</li>
+        </ul>  
+        <p><strong>Queries:</strong></p>  
+        <ul>
+        <li><code>starship(urlId: Integer)</code> <em>StarshipObject</em>
+        -- Get a specific Starship resource.</li>
+        <li><code>starshipName(name: String)</code> <em>[StarshipObject]</em>
+        -- Get a list of Starship resource with name like input argument <i>name</i>.</li>
+        <li><code>allStarships</code> <em>[StarshipObject]</em>
+        -- Get a list of all Starship resources.</li>
+        </ul>         
+        <h4 id="examples">Vehicle</h4>
+        <p>A Vehicle resource is a single transport craft that <strong>does not have</strong> hyperdrive capability.</p>
+        <p><strong>Attributes:</strong></p>
+        <ul>
+        <li><code>name</code> <em>string</em>
+        -- The name of this vehicle. The common name, such as "Sand Crawler" or "Speeder bike".</li>
+        <li><code>model</code> <em>string</em>
+        -- The model or official name of this vehicle. Such as "All-Terrain Attack Transport".</li>
+        <li><code>vehicleClass</code> <em>string</em>
+        -- The class of this vehicle, such as "Wheeled" or "Repulsorcraft".</li>
+        <li><code>manufacturer</code> <em>string</em>
+        -- The manufacturer of this vehicle. Comma separated if more than one.</li>
+        <li><code>length</code> <em>string</em>
+        -- The length of this vehicle in meters.</li>
+        <li><code>costInCredits</code> <em>string</em>
+        -- The cost of this vehicle new, in Galactic Credits.</li>
+        <li><code>crew</code> <em>string</em>
+        -- The number of personnel needed to run or pilot this vehicle.</li>
+        <li><code>passengers</code> <em>string</em>
+        -- The number of non-essential people this vehicle can transport.</li>
+        <li><code>maxAtmospheringSpeed</code> <em>string</em>
+        -- The maximum speed of this vehicle in the atmosphere.</li>
+        <li><code>cargoCapacity</code> <em>string</em>
+        -- The maximum number of kilograms that this vehicle can transport.</li>
+        <li><code>consumables</code> <em>string</em>
+        -- The maximum length of time that this vehicle can provide consumables for its entire crew without having to resupply.</li>
+        <li><code>filmList</code> <em>list</em>
+        -- A list of Film URL Resources that this vehicle has appeared in.</li>
+        <li><code>pilotList</code> <em>list</em>
+        -- A list of People URL Resources that this vehicle has been piloted by.</li>
+        <li><code>urlId</code> <em>string</em>
+        -- Unique ID for the resource.</li>
+        <li><code>created</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was created.</li>
+        <li><code>edited</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was edited.</li>
+        </ul>
+        <p><strong>Queries:</strong></p>  
+        <ul>
+        <li><code>vehicle(urlId: Integer)</code> <em>VehicleObject</em>
+        -- Get a specific Vehicle resource.</li>
+        <li><code>vehicleName(name: String)</code> <em>[VehicleObject]</em>
+        -- Get a list of Vehicle resource with name like input argument <i>name</i>.</li>
+        <li><code>allVehicles</code> <em>[VehicleObject]</em>
+        -- Get a list of all Vehicle resources.</li>
+        </ul> 
+        <h4 id="examples">Species</h4>    
+        <p>A Species resource is a type of person or character within the Star Wars Universe.</p>   
+        <p><strong>Attributes:</strong></p>
+        <ul>
+        <li><code>name</code> <em>string</em>
+        -- The name of this species.</li>
+        <li><code>classification</code> <em>string</em>
+        -- The classification of this species, such as "mammal" or "reptile".</li>
+        <li><code>designation</code> <em>string</em>
+        -- The designation of this species, such as "sentient".</li>
+        <li><code>averageHeight</code> <em>string</em>
+        -- The average height of this species in centimeters.</li>
+        <li><code>averageLifespan</code> <em>string</em>
+        -- The average lifespan of this species in years.</li>
+        <li><code>eyeColors</code> <em>string</em>
+        -- A comma-separated string of common eye colors for this species, "none" if this species does not typically have eyes.</li>
+        <li><code>hairColors</code> <em>string</em>
+        -- A comma-separated string of common hair colors for this species, "none" if this species does not typically have hair.</li>
+        <li><code>skinColors</code> <em>string</em>
+        -- A comma-separated string of common skin colors for this species, "none" if this species does not typically have skin.</li>
+        <li><code>language</code> <em>string</em>
+        -- The language commonly spoken by this species.</li>
+        <li><code>homeworld</code> <em>string</em>
+        -- The URL of a planet resource, a planet that this species originates from.</li>
+        <li><code>peopleList</code> <em>list</em>
+        -- A list of People URL Resources that are a part of this species.</li>
+        <li><code>filmList</code> <em>list</em>
+        -- A list of Film URL Resources that this species has appeared in.</li>
+        <li><code>urlID</code> <em>string</em>
+        -- Unique ID for the resource.</li>
+        <li><code>created</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was created.</li>
+        <li><code>edited</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was edited.</li>
+        </ul>  
+        <p><strong>Queries:</strong></p>  
+        <ul>
+        <li><code>species(urlId: Integer)</code> <em>SpeciesObject</em>
+        -- Get a specific Species resource.</li>
+        <li><code>speciesName(name: String)</code> <em>[SpeciesObject]</em>
+        -- Get a list of Species resource with name like input argument <i>name</i>.</li>
+        <li><code>allSpecies</code> <em>[SpeciesObject]</em>
+        -- Get a list of all Species resources.</li>
+        </ul> 
+        <h4 id="examples">Planet</h4>
+        <p>A Planet resource is a large mass, planet or planetoid in the Star Wars Universe, at the time of 0 ABY.</p>
+        <p><strong>Attributes:</strong></p>
+        <ul>
+        <li><code>name</code> <em>string</em>
+        -- The name of this planet.</li>
+        <li><code>diameter</code> <em>string</em>
+        -- The diameter of this planet in kilometers.</li>
+        <li><code>rotationPeriod</code> <em>string</em>
+        -- The number of standard hours it takes for this planet to complete a single rotation on its axis.</li>
+        <li><code>orbitalPeriod</code> <em>string</em>
+        -- The number of standard days it takes for this planet to complete a single orbit of its local star.</li>
+        <li><code>gravity</code> <em>string</em>
+        -- A number denoting the gravity of this planet, where "1" is normal or 1 standard G. "2" is twice or 2 standard Gs. "0.5" is half or 0.5 standard Gs.</li>
+        <li><code>population</code> <em>string</em>
+        -- The average population of sentient beings inhabiting this planet.</li>
+        <li><code>climate</code> <em>string</em>
+        -- The climate of this planet. Comma separated if diverse.</li>
+        <li><code>terrain</code> <em>string</em>
+        -- The terrain of this planet. Comma separated if diverse.</li>
+        <li><code>surfaceWater</code> <em>string</em>
+        -- The percentage of the planet surface that is naturally occurring water or bodies of water.</li>
+        <li><code>residentList</code> <em>list</em>
+        -- A list of People URL Resources that live on this planet.</li>
+        <li><code>filmList</code> <em>list</em>
+        -- A list of Film URL Resources that this planet has appeared in.</li>
+        <li><code>urlID</code> <em>string</em>
+        -- Unique ID for the resource.</li>
+        <li><code>created</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was created.</li>
+        <li><code>edited</code> <em>string</em>
+        -- the ISO 8601 date format of the time that this resource was edited.</li>
+        </ul>
+        <p><strong>Queries:</strong></p>  
+        <ul>
+        <li><code>planet(urlId: Integer)</code> <em>PLanetObject</em>
+        -- Get a specific Planet resource.</li>
+        <li><code>planetName(name: String)</code> <em>[PLanetObject]</em>
+        -- Get a list of Planet resource with name like input argument <i>name</i>.</li>
+        <li><code>allPLanets</code> <em>[PLanetObject]</em>
+        -- Get a list of all PLanet resources.</li>
+        </ul> 
+        </div>  
+        <br>
+        <div class="text-center">
+          <em class="lead">“Always pass on what you have learned.” - Yoda</em> 
+        </div>   
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center">
+    <div class="container">
+      <p>
+        <a href="#welcome" class="text-white" target="_blank">
+          Built by yoshirishi
+          <br>
+          <em>Go Boldly Forward</em>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
