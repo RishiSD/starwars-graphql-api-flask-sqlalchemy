@@ -3,7 +3,7 @@ import os
 
 class Config(object):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL',
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL_VAR',
                                              'postgresql://localhost/Tanvi')
     PROPAGATE_EXCEPTIONS = True
     SECRET_KEY = os.environ \
