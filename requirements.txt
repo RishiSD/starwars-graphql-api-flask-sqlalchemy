@@ -4,4 +4,3 @@ requests
 graphene
 graphene-sqlalchemy
 SQLAlchemy
-psycopg2
