@@ -6,7 +6,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 # Create database engine
 db_name = 'database.db'
 db_path = os.path.join(os.path.dirname(__file__), db_name)
-db_uri = os.environ.get('DATABASE_URL', 'sqlite:///{}'.format(db_path))
+db_uri = os.environ.get('DATABASE_URL', 'postgresql://localhost/Tanvi')
 engine = create_engine(db_uri, convert_unicode=True)
 
 # Declarative base model to create database tables and classes

@@ -5,3 +5,4 @@ graphene
 graphene-sqlalchemy
 SQLAlchemy
 uwsgi
+psycopg2

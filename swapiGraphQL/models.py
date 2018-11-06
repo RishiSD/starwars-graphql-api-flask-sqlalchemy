@@ -59,7 +59,7 @@ class ModelFilm(Base):
     __tablename__ = 'film'
 
     film_id = Column('film_id', Integer, primary_key=True)
-    url_id = Column('url_id', Integer)
+    url_id = Column('url_id', Integer, unique=True)
     title = Column('title', String)
     episode_id = Column('episode_id', Integer)
     opening_crawl = Column('opening_crawl', String)
@@ -87,7 +87,7 @@ class ModelPeople(Base):
     __tablename__ = 'people'
 
     people_id = Column('people_id', Integer, primary_key=True)
-    url_id = Column('url_id', Integer)
+    url_id = Column('url_id', Integer, unique=True)
     name = Column('name', String)
     height = Column('height', String)
     mass = Column('mass', String)
@@ -114,7 +114,7 @@ class ModelSpecies(Base):
     __tablename__ = 'species'
 
     species_id = Column('species_id', Integer, primary_key=True)
-    url_id = Column('url_id', Integer)
+    url_id = Column('url_id', Integer, unique=True)
     name = Column('name', String)
     classification = Column('classification', String)
     designation = Column('designation', String)
@@ -135,7 +135,7 @@ class ModelPlanet(Base):
     __tablename__ = 'planet'
 
     planet_id = Column('planet_id', Integer, primary_key=True)
-    url_id = Column('url_id', Integer)
+    url_id = Column('url_id', Integer, unique=True)
     name = Column('name', String)
     rotation_period = Column('rotation_period', String)
     orbital_period = Column('orbital_period', String)
@@ -175,7 +175,7 @@ class ModelVehicle(ModelTransport, Base):
     __tablename__ = 'vehicle'
 
     vehicle_id = Column('vehicle_id', Integer, primary_key=True)
-    url_id = Column('url_id', Integer)
+    url_id = Column('url_id', Integer, unique=True)
     vehicle_class = Column('vehicle_class', String)
 
 
@@ -185,7 +185,7 @@ class ModelStarship(ModelTransport, Base):
     __tablename__ = 'starship'
 
     starship_id = Column('starship_id', Integer, primary_key=True)
-    url_id = Column('url_id', Integer)
+    url_id = Column('url_id', Integer, unique=True)
     hyperdrive_rating = Column('hyperdrive_rating', String)
     mglt = Column('mglt', String)
     starship_class = Column('starship_class', String)
