@@ -15,7 +15,7 @@ if __name__ == '__main__':
     print('         ** Creating Database **          ')
     Base.metadata.create_all(engine)
     print('       ****** Fetching Data ******        ')
-    fetch_swapi_data()
+#    fetch_swapi_data()
     print('     ******** Loading Data *********      ')
     load_swapi_data()
     print('   ******* Set data relation *********    ')
