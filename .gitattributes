@@ -1,2 +1,2 @@
-swapiGraphQL/templates/* linguist-vendored
-swapiGraphQL/static/* linguist-vendored
+./swapiGraphQL/templates/* linguist-vendored
+./swapiGraphQL/static/* linguist-vendored
